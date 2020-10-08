@@ -1,0 +1,60 @@
+
+#
+# Mnemonic Maps
+#
+mmap new -reuse -name {Boolean as Logic} -radix %b -contents {{%c=FALSE -edgepriority 1 -shape low}
+{%c=TRUE -edgepriority 1 -shape high}}
+mmap new -reuse -name {Example Map} -radix %x -contents {{%b=11???? -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}}
+
+array unset createdGroup
+array set createdGroup {}
+set id [waveform add -signals [subst  {
+	{[format {test.wbm_master_bfm.clk}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {test.wbm_master_bfm.rst}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {test.wbm_master_bfm.dwidth}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {test.wbm_master_bfm.awidth}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {test.wbm_master_bfm.stb}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {test.wbm_master_bfm.cyc}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {test.wbm_master_bfm.sel[3:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {test.wbm_master_bfm.adr[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {test.wbm_master_bfm.we}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {test.wbm_master_bfm.din[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {test.wbm_master_bfm.dout[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {test.wbm_master_bfm.q[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {test.wbm_master_bfm.ack}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {test.wbm_master_bfm.err}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {test.wbm_master_bfm.rty}]}
+	} ]]
+
+waveform xview limits 0 2000ns

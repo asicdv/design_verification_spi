@@ -1,0 +1,138 @@
+
+#
+# Mnemonic Maps
+#
+mmap new -reuse -name {Boolean as Logic} -radix %b -contents {{%c=FALSE -edgepriority 1 -shape low}
+{%c=TRUE -edgepriority 1 -shape high}}
+mmap new -reuse -name {Example Map} -radix %x -contents {{%b=11???? -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}}
+
+array unset createdGroup
+array set createdGroup {}
+set id [waveform add -signals [subst  {
+	{[format {test.top.wb_clk_i}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {test.top.wb_rst_i}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {test.top.wb_cyc_i}]}
+	} ]]
+waveform format $id -color #00ffff
+set id [waveform add -signals [subst  {
+	{[format {test.top.wb_stb_i}]}
+	} ]]
+waveform format $id -color #00ffff
+set id [waveform add -signals [subst  {
+	{[format {test.top.wb_sel_i[3:0]}]}
+	} ]]
+waveform format $id -color #00ffff
+set id [waveform add -signals [subst  {
+	{[format {test.top.wb_int_o}]}
+	} ]]
+waveform format $id -color #00ffff
+set id [waveform add -signals [subst  {
+	{[format {test.top.wb_adr_i[4:0]}]}
+	} ]]
+waveform format $id -color #00ffff
+set id [waveform add -signals [subst  {
+	{[format {test.top.wb_we_i}]}
+	} ]]
+waveform format $id -color #00ffff
+set id [waveform add -signals [subst  {
+	{[format {test.top.wb_dat_o[31:0]}]}
+	} ]]
+waveform format $id -color #00ffff
+set id [waveform add -signals [subst  {
+	{[format {test.top.wb_dat_i[31:0]}]}
+	} ]]
+waveform format $id -color #00ffff
+set id [waveform add -signals [subst  {
+	{[format {test.top.wb_ack_o}]}
+	} ]]
+waveform format $id -color #00ffff
+set id [waveform add -signals [subst  {
+	{[format {test.top.wb_err_o}]}
+	} ]]
+waveform format $id -color #00ffff
+set id [waveform add -signals [subst  {
+	{[format {test.top.wb_dat[31:0]}]}
+	} ]]
+waveform format $id -color #00ffff
+set id [waveform add -signals [subst  {
+	{[format {test.top.sclk_pad_o}]}
+	} ]]
+waveform format $id -color #ff9900
+set id [waveform add -signals [subst  {
+	{[format {test.top.miso_pad_i}]}
+	} ]]
+waveform format $id -color #ff9900
+set id [waveform add -signals [subst  {
+	{[format {test.top.mosi_pad_o}]}
+	} ]]
+waveform format $id -color #ff9900
+set id [waveform add -signals [subst  {
+	{[format {test.top.ss_pad_o[7:0]}]}
+	} ]]
+waveform format $id -color #ff9900
+set id [waveform add -signals [subst  {
+	{[format {test.top.ss[7:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {test.top.spi_divider_sel}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {test.top.divider[15:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {test.top.spi_ctrl_sel}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {test.top.ctrl[13:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {test.top.tx_negedge}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {test.top.rx_negedge}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {test.top.go}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {test.top.ie}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {test.top.lsb}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {test.top.ass}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {test.top.char_len[6:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {test.top.tip}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {test.top.last_bit}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {test.top.neg_edge}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {test.top.pos_edge}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {test.top.rx[127:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {test.top.spi_tx_sel[3:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {test.top.spi_ss_sel}]}
+	} ]]
+
+waveform xview limits 516ns 3094ns
